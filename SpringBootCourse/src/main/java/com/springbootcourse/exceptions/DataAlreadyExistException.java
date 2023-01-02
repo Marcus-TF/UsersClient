@@ -1,4 +1,4 @@
-package com.example.springbootcourse.exceptions;
+package com.springbootcourse.exceptions;
 
 public class DataAlreadyExistException extends RuntimeException{
 

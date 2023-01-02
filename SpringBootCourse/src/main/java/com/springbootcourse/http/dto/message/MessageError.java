@@ -1,4 +1,4 @@
-package com.example.springbootcourse.http.dto.message;
+package com.springbootcourse.http.dto.message;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

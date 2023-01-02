@@ -1,8 +1,8 @@
-package com.example.springbootcourse.http.mapper;
+package com.springbootcourse.http.mapper;
 
-import com.example.springbootcourse.http.dto.request.UserRequest;
-import com.example.springbootcourse.http.dto.response.UserResponse;
-import com.example.springbootcourse.model.UserModel;
+import com.springbootcourse.http.dto.request.UserRequest;
+import com.springbootcourse.http.dto.response.UserResponse;
+import com.springbootcourse.model.UserModel;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 

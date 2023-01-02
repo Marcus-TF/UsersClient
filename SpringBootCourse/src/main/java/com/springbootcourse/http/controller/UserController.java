@@ -1,12 +1,11 @@
-package com.example.springbootcourse.http.controller;
+package com.springbootcourse.http.controller;
 
-import com.example.springbootcourse.http.dto.message.MessageError;
-import com.example.springbootcourse.http.dto.request.UserRequest;
-import com.example.springbootcourse.http.dto.response.UserResponse;
-import com.example.springbootcourse.http.mapper.UserMapper;
-import com.example.springbootcourse.service.UserService;
+import com.springbootcourse.http.dto.message.MessageError;
+import com.springbootcourse.http.dto.request.UserRequest;
+import com.springbootcourse.http.dto.response.UserResponse;
+import com.springbootcourse.http.mapper.UserMapper;
+import com.springbootcourse.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

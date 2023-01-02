@@ -1,4 +1,4 @@
-package com.example.springbootcourse.http.dto.request;
+package com.springbootcourse.http.dto.request;
 
 import lombok.Data;
 

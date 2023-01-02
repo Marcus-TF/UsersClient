@@ -1,8 +1,8 @@
-package com.example.springbootcourse.service;
+package com.springbootcourse.service;
 
-import com.example.springbootcourse.exceptions.DataAlreadyExistException;
-import com.example.springbootcourse.model.UserModel;
-import com.example.springbootcourse.repository.UserRepository;
+import com.springbootcourse.exceptions.DataAlreadyExistException;
+import com.springbootcourse.model.UserModel;
+import com.springbootcourse.repository.UserRepository;
 import jakarta.persistence.NoResultException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,10 +1,12 @@
-package com.example.springbootcourse.repository;
+package com.springbootcourse.repository;
 
-import com.example.springbootcourse.model.UserModel;
+import com.springbootcourse.model.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
+@Repository
 public interface UserRepository extends JpaRepository<UserModel, UUID> {
 
     boolean existsByEmail(String email);

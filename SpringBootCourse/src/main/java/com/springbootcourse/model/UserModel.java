@@ -1,6 +1,8 @@
-package com.example.springbootcourse.http.dto.response;
+package com.springbootcourse.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,9 +10,14 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Entity
 @Data
-public class UserResponse {
+@Table(name = "user", schema = "springCourse")
+public class UserModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID userId;
 
     private String name;
