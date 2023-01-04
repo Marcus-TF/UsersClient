@@ -1,5 +1,7 @@
 # SpringBoot
-Spring Boot Microservices and Spring Cloud. Build &amp; Deploy.
+
+Spring Boot Microservices and Spring Cloud. Build & Deploy.
+Basic Api
 
 <div style="display: inline_block"><br>
   <h3>Tecnologias utilizadas</h3>
@@ -12,6 +14,7 @@ Spring Boot Microservices and Spring Cloud. Build &amp; Deploy.
 <li>Lombook</li>
 <li>PostMan</li>
 <li>Swagger</li>
+<li>EurekaClient</li>  
 </ul>
 </div>
 <br/>
