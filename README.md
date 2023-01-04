@@ -1,7 +1,8 @@
 # SpringBoot
 
-Spring Boot Microservices and Spring Cloud. Build & Deploy.
-Basic Api.
+<li>Spring Boot Microservices and Spring Cloud. Build & Deploy.</li>
+<li>Basic Api.</li>
+<li>Cliente para Servidor Eureka</li>
 
 <div style="display: inline_block"><br>
   <h3>Tecnologias utilizadas</h3>
