@@ -6,10 +6,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-public class UserResponse {
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserInsertResponse {
 
     private UUID userId;
 

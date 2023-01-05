@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
-public class UserRequest {
+public class UserInsertRequest {
 
     @NotBlank
     private String name;

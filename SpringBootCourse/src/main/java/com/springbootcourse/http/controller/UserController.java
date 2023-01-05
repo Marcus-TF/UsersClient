@@ -1,8 +1,11 @@
 package com.springbootcourse.http.controller;
 
 import com.springbootcourse.http.dto.message.MessageError;
-import com.springbootcourse.http.dto.request.UserRequest;
+import com.springbootcourse.http.dto.request.UserInsertRequest;
+import com.springbootcourse.http.dto.request.UserUpdateRequest;
+import com.springbootcourse.http.dto.response.UserInsertResponse;
 import com.springbootcourse.http.dto.response.UserResponse;
+import com.springbootcourse.http.dto.response.UserUpdateResponse;
 import com.springbootcourse.http.mapper.UserMapper;
 import com.springbootcourse.service.UserService;
 import lombok.AllArgsConstructor;
@@ -19,6 +22,8 @@ public class UserController {
 
     private final UserService userService;
 
+    private final UserMapper userMapper;
+
     @GetMapping("/findAll")
     public ResponseEntity<List<UserResponse>> findAll() {
         return ResponseEntity.ok().body(UserMapper.userResponseList(userService.findAll()));
@@ -30,15 +35,15 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<UserResponse> save(@RequestBody UserRequest userRequest) {
-        var response = UserMapper.requestToModel(userRequest);
-        return ResponseEntity.ok().body(UserMapper.modelToResponse(userService.save(response)));
+    public ResponseEntity<UserInsertResponse> save(@RequestBody UserInsertRequest userInsertRequest) {
+        var response = userMapper.requestInsertToModel(userInsertRequest);
+        return ResponseEntity.ok().body(userMapper.modelToResponseInsert(userService.save(response)));
     }
 
     @PutMapping("/update/{userId}")
-     public ResponseEntity<UserResponse> update(@RequestBody UserRequest request, @PathVariable String userId) {
-        var response = UserMapper.requestToModel(request);
-        return ResponseEntity.ok().body(UserMapper.modelToResponse(userService.update(response, UUID.fromString(userId))));
+    public ResponseEntity<UserUpdateResponse> update(@RequestBody UserUpdateRequest request, @PathVariable String userId) {
+        var response = userMapper.requestUpdateToModel(request);
+        return ResponseEntity.ok().body(userMapper.modelToResponseUpdate(userService.update(response, UUID.fromString(userId))));
     }
 
     @DeleteMapping("/delete/{userId}")
@@ -46,7 +51,7 @@ public class UserController {
         var response = userService.delete(UUID.fromString(userId));
         var messageError = new MessageError();
         messageError.setMessage("Usuário deletado com sucesso!");
-        messageError.setErrorCode(200);
+        messageError.setStatusCode(200);
         return ResponseEntity.ok().body(messageError);
     }
 }
