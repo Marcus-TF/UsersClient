@@ -59,6 +59,7 @@ public class UserMapper {
     public UserUpdateResponse modelToResponseUpdate(UserModel userModel) {
         var response = new UserUpdateResponse();
         BeanUtils.copyProperties(userModel, response);
+        response.setRoles(RoleMapper.roleResponseList(userModel.getRoleModelList()));
 
         return response;
     }

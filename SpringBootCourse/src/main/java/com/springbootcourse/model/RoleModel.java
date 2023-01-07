@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -17,7 +18,7 @@ import java.util.UUID;
 @Entity
 @Data
 @Table(name = "role", schema = "user_microservice")
-public class RoleModel implements Serializable {
+public class RoleModel implements Serializable, GrantedAuthority {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -28,4 +29,9 @@ public class RoleModel implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private RoleEnum role;
+
+    @Override
+    public String getAuthority() {
+        return this.role.toString();
+    }
 }
