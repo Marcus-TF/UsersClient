@@ -48,7 +48,7 @@ public class UserController {
 
     @DeleteMapping("/delete/{userId}")
     public ResponseEntity<MessageError> delete(@PathVariable String userId) {
-        var response = userService.delete(UUID.fromString(userId));
+        userService.delete(UUID.fromString(userId));
         var messageError = new MessageError();
         messageError.setMessage("Usuário deletado com sucesso!");
         messageError.setStatusCode(200);

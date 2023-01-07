@@ -13,7 +13,7 @@ import java.util.UUID;
 @Builder
 @Entity
 @Data
-@Table(name = "user", schema = "springCourse")
+@Table(name = "user", schema = "user_microservice")
 public class UserModel {
 
     @Id
