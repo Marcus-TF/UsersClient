@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -14,7 +17,10 @@ import java.util.UUID;
 @Entity
 @Data
 @Table(name = "user", schema = "user_microservice")
-public class UserModel {
+public class UserModel implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,4 +35,12 @@ public class UserModel {
     private Integer age;
 
     private String password;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_roles",
+            schema = "user_microservice",
+            joinColumns = @JoinColumn(name = "user_fk"),
+            inverseJoinColumns = @JoinColumn(name = "role_fk"))
+    private List<RoleModel> roleModelList;
 }

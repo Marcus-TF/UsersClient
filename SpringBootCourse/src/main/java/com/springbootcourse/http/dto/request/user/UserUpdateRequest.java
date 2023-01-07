@@ -1,15 +1,12 @@
-package com.springbootcourse.http.dto.response;
+package com.springbootcourse.http.dto.request.user;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-public class UserResponse {
+public class UserUpdateRequest {
 
     private UUID userId;
 
@@ -20,4 +17,8 @@ public class UserResponse {
     private String telephone;
 
     private Integer age;
+
+    private String password;
+
+    private List<UUID> roleIds;
 }

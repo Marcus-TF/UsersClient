@@ -1,10 +1,10 @@
 package com.springbootcourse.http.mapper;
 
-import com.springbootcourse.http.dto.request.UserInsertRequest;
-import com.springbootcourse.http.dto.request.UserUpdateRequest;
-import com.springbootcourse.http.dto.response.UserInsertResponse;
-import com.springbootcourse.http.dto.response.UserResponse;
-import com.springbootcourse.http.dto.response.UserUpdateResponse;
+import com.springbootcourse.http.dto.request.user.UserInsertRequest;
+import com.springbootcourse.http.dto.request.user.UserUpdateRequest;
+import com.springbootcourse.http.dto.response.user.UserInsertResponse;
+import com.springbootcourse.http.dto.response.user.UserResponse;
+import com.springbootcourse.http.dto.response.user.UserUpdateResponse;
 import com.springbootcourse.model.UserModel;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -26,6 +26,7 @@ public class UserMapper {
         var response = new UserModel();
         BeanUtils.copyProperties(request, response);
         response.setPassword(encoder.encode(request.getPassword()));
+        response.setRoleModelList(RoleMapper.toModelList(request.getRoleIds()));
 
         return response;
     }
@@ -34,7 +35,7 @@ public class UserMapper {
         var response = new UserModel();
         BeanUtils.copyProperties(request, response);
         response.setPassword(encoder.encode(request.getPassword()));
-
+        response.setRoleModelList(RoleMapper.toModelList(request.getRoleIds()));
         return response;
     }
 
@@ -42,6 +43,7 @@ public class UserMapper {
     public static UserResponse modelToResponse(UserModel userModel) {
         var response = new UserResponse();
         BeanUtils.copyProperties(userModel, response);
+        response.setRoles(RoleMapper.roleResponseList(userModel.getRoleModelList()));
 
         return response;
     }
@@ -49,6 +51,7 @@ public class UserMapper {
     public UserInsertResponse modelToResponseInsert(UserModel userModel) {
         var response = new UserInsertResponse();
         BeanUtils.copyProperties(userModel, response);
+        response.setRoles(RoleMapper.roleResponseList(userModel.getRoleModelList()));
 
         return response;
     }

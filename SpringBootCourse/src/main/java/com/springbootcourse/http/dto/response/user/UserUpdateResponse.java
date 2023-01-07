@@ -1,15 +1,18 @@
-package com.springbootcourse.http.dto.response;
+package com.springbootcourse.http.dto.response.user;
 
+import com.springbootcourse.http.dto.response.role.RoleResponse;
+import com.springbootcourse.model.RoleModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserInsertResponse {
+public class UserUpdateResponse {
 
     private UUID userId;
 
@@ -20,4 +23,8 @@ public class UserInsertResponse {
     private String telephone;
 
     private Integer age;
+
+    private String password;
+
+    private List<RoleResponse> roles;
 }
